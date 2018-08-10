@@ -74,6 +74,7 @@ void SetGPIO_Input()
 	system("echo in > /sys/class/gpio/gpio36/direction");  
 }
 
+<<<<<<< HEAD
 int main()
 {
 	int msg;
@@ -250,5 +251,34 @@ int main()
 	    UnExport();
 		break;
    }
+=======
+int GetResult()
+{
+	
+}
+
+int main()
+{
+	char msg;
+	printf("select the number of the command: \n1.MSG-RESET \n2.MSG-MSG-PING \n3.MSG-GET \n4.MSG-TURN30 \n5.MSG-TURN90 \n6.MSGTURN120\n");
+    scanf("%c",&msg);
+	Export();
+	SetGPIO_output();
+	system("echo 1 > /sys/class/gpio/gpio6/value");
+	sleep(10);
+	system("echo 0 > /sys/class/gpio/gpio6/value");
+	UnExport();
+	//Export();
+	//SetGPIO_output();
+	switch(msg)
+	{
+		case 1:
+		case 2:
+		case 3:
+		Export();
+		SetGPIO_Input();
+	}
+	
+>>>>>>> af3297c7abdf453118f2172e3b48d8cd470d875d
 }
 
